@@ -114,13 +114,7 @@ namespace laba1
 
             if (variant == (int) SaveChoice.Yes)
             {
-                var initialData = "";
-                foreach (var number in data.Array)
-                {
-                    initialData += number.ToString();
-                    initialData += " ";
-                }
-
+                var initialData = string.Join(" ", data.Array);
                 FileSystem.OpenFileForWrite(initialData);
             }
         }
@@ -131,10 +125,8 @@ namespace laba1
             Console.WriteLine();
             var answer = "Размер массива: " + data.Array.Count + "\n";
             answer += "Введенный массив: " + "\n";
-            foreach (var number in data.Array) answer += number + " ";
-
+            answer += string.Join(" ", data.Array);
             answer += "\n";
-            //double average = data.Sum*1.0 / data.Array.Count;
             answer += "Среднее значение по модулю: " + data.Average;
             return answer;
         }
