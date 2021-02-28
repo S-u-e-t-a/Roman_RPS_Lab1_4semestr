@@ -3,8 +3,12 @@ using System.Collections.Generic;
 
 namespace laba1
 {
+    /// <summary>
+    /// Структура содержащая массив, и его среднее значение
+    /// </summary>
     public struct ArrayWithAverage
     {
+        // спросить о гетерах и сетерах
         private const int Precision = 5;
         public List<int> Array;
         public double Average;
@@ -18,8 +22,17 @@ namespace laba1
  
     }
 
+    /// <summary>
+    /// Класс содеражащий алгоритм программы
+    /// </summary>
     public static class Algorithm
     {
+        /// <summary>
+        /// Функция расчитывающая среднее значение массива по модулю
+        /// </summary>
+        /// <returns>Объект ArrayWithAverage</returns>
+        /// <param name="numbers"> Список с числами int </param>
+        /// <returns></returns>
         public static ArrayWithAverage GetAverage(List<int> numbers)
         {
             
@@ -39,7 +52,6 @@ namespace laba1
             double average = sum * 1.0 / numbers.Count;
             ArrayWithAverage arrayWithAverage = new ArrayWithAverage(average, numbers);
             return arrayWithAverage;
-
             /* алгоритм при работе с большими числами, но при маленьких дает не очень точные результаты
             double average, n;
             int k;

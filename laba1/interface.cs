@@ -22,11 +22,21 @@ namespace laba1
             Exit
         }
 
+        /// <summary>
+        /// Приветсвие/Помощь
+        /// </summary>
         public static void Greatings()
         {
-            Console.WriteLine("привет");
+            Console.WriteLine("Эта программа находит среднее арифметическое введенного масиива чисел по модулю \n" +
+                              "Автор: Хлебников Роман \n" +
+                              "Группа: 494 \n" +
+                              "Лабароторная работа №1 \n" +
+                              "Вариант 15 (5)");
         }
 
+        /// <summary>
+        /// Основное меню программы
+        /// </summary>
         public static void Menu()
         {
             Console.WriteLine();
@@ -70,6 +80,10 @@ namespace laba1
             }
         }
 
+        /// <summary>
+        /// Записывает или не записывает ответ в зависимости от выбора пользователя
+        /// </summary>
+        /// <param name="data">Структура ArrayWithAverage с обработанными данными</param>
         private static void PrintAnswer(ArrayWithAverage data)
         {
             Console.WriteLine();
@@ -91,10 +105,16 @@ namespace laba1
                     variant = InputInt();
                 }
 
-            if (variant == (int) SaveChoice.Yes) FileSystem.OpenFileForWrite(answer);
+            if (variant == (int) SaveChoice.Yes)
+            {
+                FileSystem.OpenFileForWrite(answer);
+            }
         }
 
-
+        /// <summary>
+        /// Записывает или не записывает исходные данные в зависимости от выбора пользователя
+        /// </summary>
+        /// <param name="data">Структура ArrayWithAverage с обработанными данными</param>
         private static void SaveInitialData(ArrayWithAverage data)
         {
             Console.WriteLine("Записать начальные данные в файл?");
@@ -119,7 +139,11 @@ namespace laba1
             }
         }
 
-
+        /// <summary>
+        /// Создает строку с ответом для последующего вывода/сохранения
+        /// </summary>
+        /// <param name="data">Структура ArrayWithAverage с обработанными данными</param>
+        /// <returns>Строка с ответом</returns>
         private static string MakeAnswer(ArrayWithAverage data)
         {
             Console.WriteLine();
@@ -131,6 +155,10 @@ namespace laba1
             return answer;
         }
 
+        /// <summary>
+        /// Функция для ввода данных с клавиатуры
+        /// </summary>
+        /// <returns>Список с числами для обработки</returns>
         private static List<int> KeyboardInput()
         {
             Console.WriteLine();
@@ -144,6 +172,10 @@ namespace laba1
             return numbers;
         }
 
+        /// <summary>
+        /// Функция для ввода случайных данных
+        /// </summary>
+        /// <returns>Список с числами для обработки</returns>
         private static List<int> RandomInput()
         {
             var leftBorder = -5000;
@@ -159,6 +191,10 @@ namespace laba1
             return numbers;
         }
 
+        /// <summary>
+        /// Функция для ввода данных из файла
+        /// </summary>
+        /// <returns>Список с числами для обработки</returns>
         private static List<int> FileInput()
         {
             Console.WriteLine();
@@ -166,7 +202,10 @@ namespace laba1
             return numbers;
         }
 
-
+        /// <summary>
+        /// Функция для корректного ввода числа типа int
+        /// </summary>
+        /// <returns>Число int</returns>
         public static int InputInt()
         {
             int number;
@@ -175,6 +214,10 @@ namespace laba1
             return number;
         }
 
+        /// <summary>
+        /// Функция для корректного ввода размера массива
+        /// </summary>
+        /// <returns> Размер массива </returns>
         private static int InputSize()
         {
             var isNumberCorrect = false;

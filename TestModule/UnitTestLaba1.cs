@@ -4,6 +4,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestModule
 {
+    /// <summary>
+    /// Класс с тестовыми функциями
+    /// </summary>
     [TestClass]
     public class UnitTestLaba1
     {
