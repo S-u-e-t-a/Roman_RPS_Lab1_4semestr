@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace laba1
 {
@@ -10,7 +11,14 @@ namespace laba1
     {
         // спросить о гетерах и сетерах
         private const int Precision = 5;
-        public List<int> Array;
+
+        private List<int> Array;
+
+        public List<int> myArray
+        {
+            get { return new List<int>(Array); }
+        }
+
         public double Average;
 
         public ArrayWithAverage(double average, List<int> array)

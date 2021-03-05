@@ -113,7 +113,16 @@
                             .Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries) // разбиваем строку по указанным символам
                             .Select(n => int.Parse(n)) // преобразуем элементы в int
                             .ToList(); // преобразуем результат в список
-                        return numbers;
+                        if (numbers.Count == 0)
+                        {
+                            Console.WriteLine("В фале не найдено чисел, попробуйте снова...");
+                            Console.WriteLine("Введите путь к файлу");
+                            path = Console.ReadLine();
+                        }
+                        else
+                        {
+                            return numbers;
+                        }
                     }
                     catch (FileNotFoundException)
                     {

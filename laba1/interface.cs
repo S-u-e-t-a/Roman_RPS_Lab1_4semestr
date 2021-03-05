@@ -18,7 +18,6 @@ namespace laba1
             FileInput,
             RandomInput,
             Help,
-            ModuleTests,
             Exit
         }
 
@@ -27,10 +26,10 @@ namespace laba1
         /// </summary>
         public static void Greatings()
         {
-            Console.WriteLine("Эта программа находит среднее арифметическое введенного масиива чисел по модулю \n" +
+            Console.WriteLine("Эта программа находит среднее арифметическое введенного массива чисел по модулю \n" +
                               "Автор: Хлебников Роман \n" +
                               "Группа: 494 \n" +
-                              "Лабароторная работа №1 \n" +
+                              "Лабораторная работа №1 \n" +
                               "Вариант 15 (5)");
         }
 
@@ -45,8 +44,7 @@ namespace laba1
             Console.WriteLine("2. Ввести массив из файла");
             Console.WriteLine("3. Ввести массив случайно");
             Console.WriteLine("4. Показать помощь");
-            Console.WriteLine("5. Запустить модульные тесты");
-            Console.WriteLine("6. Выход");
+            Console.WriteLine("5. Выход");
             var variant = InputInt();
             ArrayWithAverage arrayWithAverage;
             switch (variant)
@@ -68,8 +66,6 @@ namespace laba1
                     break;
                 case (int) MenuChoice.Help:
                     Greatings();
-                    break;
-                case (int) MenuChoice.ModuleTests:
                     break;
                 case (int) MenuChoice.Exit:
                     Environment.Exit(0);
@@ -134,7 +130,7 @@ namespace laba1
 
             if (variant == (int) SaveChoice.Yes)
             {
-                var initialData = string.Join(" ", data.Array);
+                var initialData = string.Join(" ", data.myArray);
                 FileSystem.OpenFileForWrite(initialData);
             }
         }
@@ -147,9 +143,9 @@ namespace laba1
         private static string MakeAnswer(ArrayWithAverage data)
         {
             Console.WriteLine();
-            var answer = "Размер массива: " + data.Array.Count + "\n";
+            var answer = "Размер массива: " + data.myArray.Count + "\n";
             answer += "Введенный массив: " + "\n";
-            answer += string.Join(" ", data.Array);
+            answer += string.Join(" ", data.myArray);
             answer += "\n";
             answer += "Среднее значение по модулю: " + data.Average;
             return answer;
@@ -162,9 +158,8 @@ namespace laba1
         private static List<int> KeyboardInput()
         {
             Console.WriteLine();
-            int size;
             Console.WriteLine("Введите размер массива:");
-            size = InputSize();
+            var size = InputSize();
             var numbers = new List<int>();
             Console.WriteLine("Введите элементы массива...");
             for (var i = 0; i < size; i++) numbers.Add(InputInt());
@@ -182,9 +177,8 @@ namespace laba1
             var rightBorder = 5000;
             Console.WriteLine();
             var rnd = new Random();
-            int size;
             Console.WriteLine("Введите размер массива:");
-            size = InputInt();
+            var size = InputInt();
             var numbers = new List<int>();
             for (var i = 0; i < size; i++) numbers.Add(rnd.Next(leftBorder, rightBorder));
 
